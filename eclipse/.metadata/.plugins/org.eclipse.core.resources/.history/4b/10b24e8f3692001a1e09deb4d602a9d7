@@ -1,0 +1,31 @@
+package testclient.commands;
+
+import testclient.command.Command;
+
+public class Bind extends Command{
+
+	@Override
+	public String getAlias() {
+		// TODO Auto-generated method stub
+		return "bind";
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "Allows you to change keybinds";
+	}
+
+	@Override
+	public String getSyntax() {
+		// TODO Auto-generated method stub
+		return ".bind <mod> <key>";
+	}
+
+	@Override
+	public void onCommand(String command, String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

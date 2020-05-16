@@ -1,0 +1,32 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.network.NetHandlerPlayServer;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
+import testclient.main.Catagory;
+
+public class KillAura extends Module {
+	private int ticks=0;
+	public KillAura() {
+		super("KillAura",Keyboard.KEY_R,Catagory.COMBAT);
+	}
+	public void onUpdate() {
+		ticks++;
+		if(this.isToggled()) {
+			mc.gameSettings.keyBindAttack.pressed=true;
+			for(Entity e:mc.world.loadedEntityList) {
+				if(e instanceof EntityLivingBase) {
+					mc.player.swingArm(EnumHand.MAIN_HAND);
+					mc.playerController.attackEntity(mc.player, e);
+				}
+			}
+		}
+	}
+	
+}

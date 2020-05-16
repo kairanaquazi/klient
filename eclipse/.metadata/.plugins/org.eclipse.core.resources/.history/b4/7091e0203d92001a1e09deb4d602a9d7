@@ -1,0 +1,5 @@
+package testclient.main;
+
+public class GuiIngameHook {
+
+}

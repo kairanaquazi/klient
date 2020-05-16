@@ -1,0 +1,14 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class MobESP extends Module {
+
+	public MobESP() {
+		super("MobESP",Keyboard.KEY_L,Catagory.RENDERER);
+		// TODO Auto-generated constructor stub
+	}
+
+}

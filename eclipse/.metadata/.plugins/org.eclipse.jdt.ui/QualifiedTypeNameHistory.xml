@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="testclient.mods.Flight"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
+<fullyQualifiedTypeName name="net.minecraft.util.text.TextComponentString"/>
+<fullyQualifiedTypeName name="testclient.commands.CommandManager"/>
+<fullyQualifiedTypeName name="net.minecraft.network.play.server.SPacketChat"/>
+<fullyQualifiedTypeName name="testclient.command.Command"/>
+<fullyQualifiedTypeName name="testclient.commands.Bind"/>
+<fullyQualifiedTypeName name="testclient.main.TestClient"/>
+<fullyQualifiedTypeName name="net.minecraft.client.gui.GuiIngame"/>
+<fullyQualifiedTypeName name="testclient.mods.Module"/>
+<fullyQualifiedTypeName name="testclient.main.GuiIngameHook"/>
+<fullyQualifiedTypeName name="net.minecraft.network.play.client.CPacketPlayer"/>
+<fullyQualifiedTypeName name="org.lwjgl.input.Keyboard"/>
+<fullyQualifiedTypeName name="testclient.mods.Fullbright"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,29 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import testclient.main.Catagory;
+
+public class Glide extends Module {
+
+	public Glide() {
+		super("Glide",Keyboard.KEY_K,Catagory.PLAYER);
+	}
+	public void onUpdate() {
+		double oldY=mc.player.motionY;
+		double oldJ=mc.player.jumpMovementFactor;
+		if(this.isToggled()) {
+			if((mc.player.motionY<0.0d)&&(mc.player.isAirBorne)&&(!mc.player.isInWater())&&(!mc.player.isOnLadder())) {
+				if(!mc.player.isInsideOfMaterial(Material.LAVA)) {
+					mc.player.motionY=-.125d;
+					mc.player.jumpMovementFactor*=1.12337f;
+				}
+			}
+		}else {
+			mc.player.motionY=oldY;
+			mc.player.jumpMovementFactor=oldJ;
+		}
+	}
+}

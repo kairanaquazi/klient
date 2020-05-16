@@ -1,0 +1,13 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class Flight extends Module{
+
+	public Flight() {
+		super("Flight",Keyboard.KEY_G,Catagory.PLAYER);
+	}
+	
+}

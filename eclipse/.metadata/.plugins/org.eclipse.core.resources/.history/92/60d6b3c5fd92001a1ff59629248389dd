@@ -1,0 +1,12 @@
+package testclient.mods;
+
+import testclient.main.Catagory;
+
+public class Glide extends Module {
+
+	public Glide() {
+		super(nm, k, c);
+		// TODO Auto-generated constructor stub
+	}
+
+}

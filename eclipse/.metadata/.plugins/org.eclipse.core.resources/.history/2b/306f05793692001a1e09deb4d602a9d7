@@ -1,0 +1,5 @@
+package testclient.commands;
+
+public class Bind {
+
+}

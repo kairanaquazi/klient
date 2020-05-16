@@ -1,0 +1,50 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.math.Vec3d;
+import testclient.main.Catagory;
+import testclient.utils.RenderUtils;
+
+public class MobESP extends Module{
+
+	public MobESP() {
+		super("MobESP", Keyboard.KEY_M, Catagory.RENDERER);
+		toggle();
+	}
+	
+	@Override
+	public void onRender() {
+		if(this.isToggled()){
+			for(Object e: mc.world.loadedEntityList){
+				if(e instanceof EntityLiving){
+					RenderUtils.entityESPBox((Entity)e, 0);
+				}
+			}
+		}
+	}
+	private void renderTracers(double partialTicks)
+	{
+		Vec3d start =
+			RotationUtils.getClientLookVec().add(RenderUtils.getCameraPos());
+		
+		GL11.glBegin(GL11.GL_LINES);
+		for(Entity e : c.world.loadedEntityList)
+		{
+			Vec3d end = e.getEntityBoundingBox().getCenter()
+				.subtract(new Vec3d(e.posX, e.posY, e.posZ)
+					.subtract(e.prevPosX, e.prevPosY, e.prevPosZ)
+					.multiply(1 - partialTicks));
+			
+			float f = MC.player.distanceTo(e) / 20F;
+			GL11.glColor4f(2 - f, f, 0, 0.5F);
+			
+			GL11.glVertex3d(start.x, start.y, start.z);
+			GL11.glVertex3d(end.x, end.y, end.z);
+		}
+		GL11.glEnd();
+	}
+}

@@ -1,0 +1,20 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class Flight extends Module{
+
+	public Flight() {
+		super("Flight",Keyboard.KEY_G,Catagory.PLAYER);
+	}
+	public void onUpdate() {
+		if(this.isToggled()) {
+			mc.player.capabilities.isFlying=true;
+			if(mc.gameSettings.keyBindJump.isPressed()) {
+				mc.player.motionY+=0.2;
+			}
+		}
+	}
+}

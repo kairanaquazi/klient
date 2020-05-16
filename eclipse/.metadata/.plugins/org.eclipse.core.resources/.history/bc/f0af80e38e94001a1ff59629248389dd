@@ -1,0 +1,14 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class JumpBoost extends Module {
+
+	public JumpBoost() {
+		super("Jump Boost",Keyboard.KEY_J,Catagory.PLAYER);
+		// TODO Auto-generated constructor stub
+	}
+
+}

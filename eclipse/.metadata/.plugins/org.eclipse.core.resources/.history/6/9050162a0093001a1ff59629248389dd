@@ -1,0 +1,12 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class Glide extends Module {
+
+	public Glide() {
+		super("Glide",Keyboard.KEY_K,Catagory.PLAYER);
+	}
+}

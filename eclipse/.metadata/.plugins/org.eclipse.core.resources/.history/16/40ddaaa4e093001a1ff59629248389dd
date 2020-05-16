@@ -1,0 +1,21 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import net.minecraft.network.play.client.CPacketPlayer;
+import testclient.main.Catagory;
+
+public class Nofall extends Module{
+
+	public Nofall() {
+		super("Nofall", Keyboard.KEY_N, Catagory.PLAYER);
+	}
+	public void onUpdate() {
+		if(this.isToggled()) {
+			if(mc.player.fallDistance>2F) {
+				mc.player.connection.sendPacket(new CPacketPlayer(true));
+			}
+		}
+		super.onUpdate();
+	}
+}

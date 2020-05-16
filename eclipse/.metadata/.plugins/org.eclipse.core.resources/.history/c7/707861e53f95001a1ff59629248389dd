@@ -1,0 +1,12 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class KillAura extends Module {
+
+	public KillAura() {
+		super("KillAura",Keyboard.KEY_R,Catagory.COMBAT);
+	}
+}

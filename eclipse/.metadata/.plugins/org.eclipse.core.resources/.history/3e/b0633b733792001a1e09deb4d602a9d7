@@ -1,0 +1,43 @@
+package testclient.commands;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.command.Command;
+import testclient.main.TestClient;
+import testclient.mods.Module;
+
+public class Bind extends Command{
+
+	@Override
+	public String getAlias() {
+		// TODO Auto-generated method stub
+		return "bind";
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "Allows you to change keybinds";
+	}
+
+	@Override
+	public String getSyntax() {
+		// TODO Auto-generated method stub
+		return ".bind set <mod> <key> | .bind del <mod> | .bind clear";
+	}
+
+	@Override
+	public void onCommand(String command, String[] args) throws Exception {
+		if (args[0].equalsIgnoreCase("set")){
+			args[2]=args[2].toUpperCase();
+			int key=Keyboard.getKeyIndex(args[2]);
+			
+			for(Module m: TestClient.getModules()) {
+				if(args[1].equalsIgnoreCase(m.getName())) {
+					m.setKey(Keyboard.getKeyIndex(Keyboard.getKeyName(key)));
+				}
+			}
+		}
+	}
+
+}

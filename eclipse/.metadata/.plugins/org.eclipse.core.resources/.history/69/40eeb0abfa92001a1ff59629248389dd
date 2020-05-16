@@ -1,0 +1,5 @@
+package testclient.main;
+
+public enum Catagory {
+	PLAYER, RENDERER, COMBAT
+}

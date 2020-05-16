@@ -1,0 +1,37 @@
+package testclient.main;
+
+import java.util.ArrayList;
+
+import testclient.mods.*;
+
+public class TestClient {
+	private static ArrayList<Module> mods;
+	public TestClient() {
+		mods=new ArrayList<Module>();
+		addMod(new Flight());
+	}
+	public static void addMod(Module mod) {
+		mods.add(mod);
+	}
+	public static ArrayList<Module> getModule(){
+		return mods;
+	}
+	public static void onUpdate() {
+		for(Module m:mods) {
+			m.onUpdate();
+		}
+	}
+	public static void onRender() {
+		for(Module m:mods) {
+			m.onRender();
+		}
+	}
+	public static void onKeyPressed(int k) {
+		for(Module m:mods) {
+			if(m.getKey()==k) {
+				m.toggle();
+			}
+		}
+	}
+	
+}

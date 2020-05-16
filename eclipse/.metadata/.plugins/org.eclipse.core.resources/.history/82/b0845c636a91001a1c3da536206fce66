@@ -1,0 +1,33 @@
+package testclient.main;
+
+import java.util.ArrayList;
+
+public class TestClient {
+	private static ArrayList<Module> mods;
+	public TestClient() {
+		mods=new ArrayList<Module>();
+	}
+	public static void addMod(Module mod) {
+		mods.add(mod);
+	}
+	public static ArrayList<Module> getModule(){
+		return mods;
+	}
+	public void onUpdate() {
+		for(Module m:mods) {
+			m.onUpdate();
+		}
+	}
+	public void onRender() {
+		for(Module m:mods) {
+			m.onRender();
+		}
+	}
+	public static void onKeyPressed(int k) {
+		for(Module m:mods) {
+			if(m.getKey()==k) {
+				m.toggle();
+			}
+		}
+	}
+}

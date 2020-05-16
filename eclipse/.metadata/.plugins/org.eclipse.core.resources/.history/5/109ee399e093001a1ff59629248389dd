@@ -1,0 +1,27 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import testclient.main.Catagory;
+import testclient.utils.RenderUtils;
+
+public class MobESP extends Module{
+
+	public MobESP() {
+		super("MobESP", 0, Catagory.RENDERER);
+	}
+	
+	@Override
+	public void onRender() {
+		if(this.isToggled()){
+			for(Object e: mc.world.loadedEntityList){
+				if(e instanceof EntityLiving){
+					RenderUtils.entityESPBox((Entity)e, 0);
+				}
+			}
+		}
+	}
+
+}

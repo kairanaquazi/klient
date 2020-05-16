@@ -1,0 +1,31 @@
+package testclient.main;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiIngame;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.GlStateManager;
+import testclient.mods.Module;
+
+public class GuiIngameHook extends GuiIngame{
+
+	public GuiIngameHook(Minecraft mcIn) {
+		super(mcIn);
+	}
+	public void renderGameOverlay(float partialTicks)
+    {
+		super.renderGameOverlay(partialTicks);
+        ScaledResolution scaledresolution = new ScaledResolution(this.mc);
+        FontRenderer fontrenderer = this.getFontRenderer();
+        GlStateManager.enableBlend();
+        
+        int count=0;
+        for(Module m:TestClient.getModules())
+        {
+        	if(m.isToggled()) {
+        		mc.fontRendererObj.drawString(m.getName(), 2, 2+(count*10), 0x00ff00);
+        		count++;
+        	}
+        }        
+    }
+}

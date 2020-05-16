@@ -1,0 +1,26 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class Flight extends Module{
+	public static float flyHackSpeed=0.1f;
+	public Flight() {
+		super("Flight",Keyboard.KEY_G,Catagory.PLAYER);
+	}
+	public void onUpdate() {
+		if(this.isToggled()) {
+			mc.player.capabilities.isFlying=true;
+			if(mc.gameSettings.keyBindJump.isPressed()) {
+				mc.player.motionY+=0.2;
+			}
+			if(mc.gameSettings.keyBindSneak.isPressed()) {
+				mc.player.motionY-=0.2;
+			}
+			if(mc.gameSettings.keyBindForward.isPressed()) {
+				mc.player.capabilities.setFlySpeed(flyHackSpeed);
+			}
+		}
+	}
+}

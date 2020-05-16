@@ -1,0 +1,11 @@
+package testclient.main;
+
+import net.minecraft.client.Minecraft;
+
+public class Module {
+	protected Minecraft mc=Minecraft.getMinecraft();
+	private String name;
+	private int key;
+	private boolean toggled;
+	private Catagory catagory;
+}

@@ -1,0 +1,14 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class Nofall extends Module{
+
+	public Nofall() {
+		super("Nofall", Keyboard.KEY_N, Catagory.PLAYER);
+		// TODO Auto-generated constructor stub
+	}
+
+}

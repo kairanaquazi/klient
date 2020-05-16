@@ -1,0 +1,35 @@
+package testclient.commands;
+
+import java.util.ArrayList;
+
+import testclient.main.TestClient;
+
+public class CommandManager {
+	private ArrayList<Command> commands;
+	public CommandManager() {
+		commands=new ArrayList<Command>();
+	}
+	public void addCommand(Command c) {
+		commands.add(c);
+	}
+	public ArrayList<Command> getCommands(){return commands;}
+	public void callCommand(String input) {
+		String split[]=input.split(" ");
+		String command=split[0];
+		String args=input.substring(command.length()).trim();
+		for(Command c:commands) {
+			if(c.getAlias().equalsIgnoreCase(command)) {
+				try {
+					c.onCommand(args, args.split(" "));
+				}
+				catch(Exception e) {
+					TestClient.addChatMessage("Invalid Command Usage");
+					TestClient.addChatMessage(c.getSyntax());
+				}
+				return;
+			}
+		}
+		TestClient.addChatMessage("Command Not Found");
+	}
+	
+}

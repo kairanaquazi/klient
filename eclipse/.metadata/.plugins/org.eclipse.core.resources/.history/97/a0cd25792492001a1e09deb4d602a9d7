@@ -1,0 +1,22 @@
+package testclient.mods;
+
+import org.lwjgl.input.Keyboard;
+
+import testclient.main.Catagory;
+
+public class JumpBoost extends Module{
+	public JumpBoost() {
+		super("JumpBoost",Keyboard.KEY_J,Catagory.PLAYER);
+	}
+	public void onUpdate() {
+		if(this.isToggled()) {
+			if(mc.gameSettings.keyBindJump.isPressed()) {
+				mc.player.jumpMovementFactor+=1;
+			}
+		}
+		super.onUpdate();
+	}
+	public void onDisable() {
+		super.onDisable();
+	}
+}

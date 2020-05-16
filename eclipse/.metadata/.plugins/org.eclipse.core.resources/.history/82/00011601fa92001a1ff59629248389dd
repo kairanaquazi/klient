@@ -1,0 +1,13 @@
+package testclient.gui;
+
+import org.darkstorm.minecraft.gui.component.Frame;
+
+import testclient.main.TestClient;
+
+public class UIRenderer {
+	public static void renderAndUpdateFrames() {
+		for(Frame f:TestClient.guiManager.getFrames()) {
+			f.update();
+		}
+	}
+}
